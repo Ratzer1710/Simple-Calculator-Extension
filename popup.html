@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator for Chrome</title>
+</head>
+<body>
+    <div class="display">
+        <input type="text" id="display_total" placeholder="0">
+        <input type="text" id="total">
+    </div>
+    <div class="calculator">
+        <div class="row1">
+            <button class="operator" id="button_clear">C</button>
+            <button class="operator" id="button_delete">del</button>
+            <button class="operator" id="button_addition">+</button>
+        </div>
+        <div class="row2">
+            <button class="number" id="button7">7</button>
+            <button class="number" id="button8">8</button>
+            <button class="number" id="button9">9</button>
+            <button class="operator" id="button_substraction">-</button> 
+        </div>
+        <div class="row3">
+            <button class="number" id="button4">4</button>
+            <button class="number" id="button5">5</button>
+            <button class="number" id="button6">6</button>
+            <button class="operator" id="button_multiplication">x</button>
+        </div>
+        <div class="row4">
+            <button class="number" id="button1">1</button>
+            <button class="number" id="button2">2</button>
+            <button class="number" id="button3">3</button>
+            <button class="operator" id="button_division">÷</button>
+        </div>
+        <div class="row5">
+            <button class="number" id="button0">0</button>
+            <button class="number" id="button_dot">.</button>
+            <button class="operator" id="button_total">=</button>
+        </div>
+    </div>
+    <script src="calc.js"></script>
+</body>
+</html>

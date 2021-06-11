@@ -1,0 +1,11 @@
+{
+    "manifest_version": 2,
+    "name": "Calculator for Chrome",
+    "description": "A calculator extension for chrome with the basic functions (+, -, *, /)",
+    "version": "4.0",
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_title": "Calculator for Chrome",
+        "default_icon": "Calc_Logo.png"
+    } 
+}
