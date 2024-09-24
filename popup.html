@@ -5,41 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator for Chrome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Simple Calculator</title>
 </head>
 <body>
-    <div class="display">
-        <input type="text" id="display_total" placeholder="0">
-        <input type="text" id="total">
-    </div>
-    <div class="calculator">
-        <div class="row1">
-            <button class="operator" id="button_clear">C</button>
-            <button class="operator" id="button_delete">del</button>
-            <button class="operator" id="button_addition">+</button>
+    <div class="container">
+        <div class="display">
+            <input readonly type="text" id="display_total" placeholder="0">
+            <input readonly type="text" id="total">
         </div>
-        <div class="row2">
-            <button class="number" id="button7">7</button>
-            <button class="number" id="button8">8</button>
-            <button class="number" id="button9">9</button>
-            <button class="operator" id="button_substraction">-</button> 
-        </div>
-        <div class="row3">
-            <button class="number" id="button4">4</button>
-            <button class="number" id="button5">5</button>
-            <button class="number" id="button6">6</button>
-            <button class="operator" id="button_multiplication">x</button>
-        </div>
-        <div class="row4">
-            <button class="number" id="button1">1</button>
-            <button class="number" id="button2">2</button>
-            <button class="number" id="button3">3</button>
-            <button class="operator" id="button_division">÷</button>
-        </div>
-        <div class="row5">
-            <button class="number" id="button0">0</button>
-            <button class="number" id="button_dot">.</button>
-            <button class="operator" id="button_total">=</button>
+        <div class="calculator">
+            <div class="row">
+                <button class="operator" id="button_clear">AC</button>
+                <button class="operator" id="button_delete"><i class="fas fa-delete-left"></i></button>
+                <button class="operator" id="button_percentage"><i class="fas fa-percent"></i></button>
+                <button class="operator" id="button_division"><i class="fas fa-divide"></i></button>
+            </div>
+            <div class="row">
+                <button class="number" id="button7">7</button>
+                <button class="number" id="button8">8</button>
+                <button class="number" id="button9">9</button>
+                <button class="operator" id="button_multiplication"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div class="row">
+                <button class="number" id="button4">4</button>
+                <button class="number" id="button5">5</button>
+                <button class="number" id="button6">6</button>
+                <button class="operator" id="button_substraction"><i class="fas fa-minus"></i></button> 
+            </div>
+            <div class="row">
+                <button class="number" id="button1">1</button>
+                <button class="number" id="button2">2</button>
+                <button class="number" id="button3">3</button>
+                <button class="operator" id="button_addition"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="row">
+                <button class="number" id="button0">0</button>
+                <button class="number" id="button_dot">.</button>
+                <button class="operator" id="button_total"><i class="fas fa-equals"></i></button>
+            </div>
         </div>
     </div>
     <script src="calc.js"></script>

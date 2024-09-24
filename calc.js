@@ -13,6 +13,7 @@ window.onload = function () {
 
     document.getElementById("button_clear").addEventListener("click", function() {clearEverything();});
     document.getElementById("button_delete").addEventListener("click", function() {erase();});
+    document.getElementById("button_percentage").addEventListener("click", function() {calculatePercentage();});
     document.getElementById("button_addition").addEventListener("click", function() {add();});
     document.getElementById("button_substraction").addEventListener("click", function() {substract();});
     document.getElementById("button_multiplication").addEventListener("click", function() {multiply();});
@@ -99,15 +100,19 @@ function substract() {
     } else if (!first_operation) {
         if (addition) {
             accumulate = accumulate + parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (substraction) {
             accumulate = accumulate - parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (multiplication) {
             accumulate = accumulate * parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (division) {
             accumulate = accumulate / parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         }
         number_string = "";
@@ -134,15 +139,19 @@ function add() {
     if (!first_operation) {
         if (addition) {
             accumulate = accumulate + parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (substraction) {
             accumulate = accumulate - parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (multiplication) {
             accumulate = accumulate * parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (division) {
             accumulate = accumulate / parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         };
         number_string = "";
@@ -183,15 +192,19 @@ function multiply() {
     if (!first_operation) {
         if (addition) {
             accumulate = accumulate + parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (substraction) {
             accumulate = accumulate - parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (multiplication) {
             accumulate = accumulate * parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (division) {
             accumulate = accumulate / parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         };
         number_string = "";
@@ -235,15 +248,19 @@ function divide() {
     if (!first_operation) {
         if (addition) {
             accumulate = accumulate + parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (substraction) {
             accumulate = accumulate - parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (multiplication) {
             accumulate = accumulate * parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         } else if (division) {
             accumulate = accumulate / parseFloat(number_string);
+            accumulate = parseFloat(accumulate.toFixed(2));
             document.getElementById("total").value=accumulate;
         };
         number_string = "";
@@ -283,21 +300,40 @@ function divide() {
     }
 }
 
+function calculatePercentage() {
+    if (number_string !== "" && number_string !== "0" && first_operation) {
+        let percentageValue =  parseFloat((parseFloat(number_string) / 100).toFixed(2));
+        document.getElementById("display_total").value = percentageValue;
+        accumulate = percentageValue;
+        number_string = "0";
+        historial = historial + " % ";
+    } 
+    else if ((accumulate !== null && first_operation) || (accumulate !== null && !first_operation && number_string === "")) {
+        let percentageValue = parseFloat((parseFloat(accumulate) / 100).toFixed(2));
+        document.getElementById("display_total").value = percentageValue;
+        accumulate = percentageValue;
+        number_string = "0";
+        historial = historial + " % ";
+    } else {
+        alert("Please enter a number or click total to calculate the percentage.");
+    }
+}
+
 function result() {
     if (addition) {
-        document.getElementById("total").value = accumulate + parseFloat(number_string);
+        document.getElementById("total").value = parseFloat((accumulate + parseFloat(number_string)).toFixed(2));
         first_operation = true;
         addition = false;
     } else if (substraction) {
-        document.getElementById("total").value = accumulate - parseFloat(number_string);
+        document.getElementById("total").value = parseFloat((accumulate - parseFloat(number_string)).toFixed(2));
         first_operation = true;
         substraction = false;
     } else if (multiplication) {
-        document.getElementById("total").value = accumulate * parseFloat(number_string);
+        document.getElementById("total").value = parseFloat((accumulate * parseFloat(number_string)).toFixed(2));
         first_operation = true;
         multiplication = false;
     } else if (division) {
-        document.getElementById("total").value = accumulate / parseFloat(number_string);
+        document.getElementById("total").value = parseFloat((accumulate / parseFloat(number_string)).toFixed(2));
         first_operation = true;
         division = false;
     }
@@ -391,6 +427,9 @@ function doc_keyUp(e) {
     }
     if (e.keyCode == 111) {
         divide();
+    }
+    if (e.keyCode == 53) {
+        calculatePercentage();
     }
     if (e.keyCode == 8) {
         erase();
